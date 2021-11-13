@@ -6,11 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./numero-secreto.page.scss'],
 })
 export class NumeroSecretoPage implements OnInit {
-  keyNumbers: number[] = Array.from(Array(10).keys());
+  keyNumbers: number[];
+  keyboard = '';
+  input: number;
+  result: string;
 
   constructor() { }
 
-  shuffleArray(array: number[]) {
+  shuffleArray() {
+    const array = Array.from(Array(10).keys());
+
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         const temp = array[i];
@@ -22,11 +27,25 @@ export class NumeroSecretoPage implements OnInit {
   }
 
   ngOnInit() {
-    this.keyNumbers = this.shuffleArray(this.keyNumbers);
+    this.keyNumbers = this.shuffleArray();
   }
 
   addKeyNumber(value: number) {
-    console.log(value);
+    if(!isNaN(value)) {
+      this.keyboard = `${this.keyboard}${value}`;
+    }
   }
 
+  handleSubmit() {
+    this.result = Number(this.input) === Number(this.keyboard)
+      ? 'Os campos coincidem'
+      : 'Os campos não coincidem';
+  }
+
+  clear() {
+    this.result = undefined;
+    this.input = undefined;
+    this.keyboard = '';
+    this.keyNumbers = this.shuffleArray();
+  }
 }

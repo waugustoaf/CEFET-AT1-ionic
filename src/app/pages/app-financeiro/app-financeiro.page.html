@@ -13,25 +13,25 @@
   <div class="container">
     <div class="input">
       <label for="value">Valor da aplicação</label>
-      <input type="text" name="value" placeholder="R$ 0.00" />
+      <input type="number" name="value" placeholder="R$ 0.00" [(ngModel)]="value">
     </div>
     <div class="input">
       <label for="tax">Taxa de juros</label>
-      <input type="text" name="tax" placeholder="0%">
+      <input type="number" name="tax" placeholder="0%" [(ngModel)]="tax">
     </div>
     <div class="input">
       <label for="months">Quantidade de meses</label>
-      <input type="text" name="months" placeholder="0">
+      <input type="number" name="months" placeholder="0"  [(ngModel)]="months">
     </div>
 
     <div class="buttons">
-      <button>Limpar</button>
-      <button>Calcular</button>
+      <button (click)="clear()">Limpar</button>
+      <button (click)="handleSubmit()">Calcular</button>
     </div>
 
     <div class="input">
       <label for="result">Rendimento total</label>
-      <input type="text" name="result"  readonly>
+      <input type="text" name="result" readonly [(ngModel)]="result">
     </div>
   </div>
 </ion-content>

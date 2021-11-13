@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>App Financeira</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="input">
+      <label for="value">Valor da aplicação</label>
+      <input type="text" name="value" placeholder="R$ 0.00" />
+    </div>
+    <div class="input">
+      <label for="tax">Taxa de juros</label>
+      <input type="text" name="tax" placeholder="0%">
+    </div>
+    <div class="input">
+      <label for="months">Quantidade de meses</label>
+      <input type="text" name="months" placeholder="0">
+    </div>
+
+    <div class="buttons">
+      <button>Limpar</button>
+      <button>Calcular</button>
+    </div>
+
+    <div class="input">
+      <label for="result">Rendimento total</label>
+      <input type="text" name="result"  readonly>
+    </div>
+  </div>
+</ion-content>
